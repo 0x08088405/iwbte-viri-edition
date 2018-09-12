@@ -30,6 +30,6 @@ To get started, open GameMaker and import the *.gmz* contents with the **Import 
 
 Tutorials & examples can be found in the docs. Have fun! ❤
 
-### Contact
+### Contact 💬
 
 I'm the most active on Discord @ **viri#0001**
