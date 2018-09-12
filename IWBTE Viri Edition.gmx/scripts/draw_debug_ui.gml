@@ -26,5 +26,5 @@ with(argument0) {
         debugtext += " [god]";
     
     draw_set_color(textColor);
-    draw_text(5, 5, debugtext);
+    draw_text(drawX, drawY, debugtext);
 }
