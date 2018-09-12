@@ -17,7 +17,7 @@ A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamema
 Yeah I'll make a thing and put it here. You just wait. :pog:
 
 ## Setup
-### Downloads & Usage ⬇️
+### Downloads & Usage
 
 You can grab the latest version
 [here](https://github.com/notviri/iwbte-viri-edition/releases/download/v0.9/IWBTE.Viri.Edition.v0_9.gmz)
@@ -30,6 +30,6 @@ To get started, open GameMaker and import the *.gmz* contents with the **Import 
 
 Tutorials & examples can be found in the docs. Have fun! ❤
 
-### Contact 📧
+### Contact
 
-I'm the most active on Discord @ **viri#0001**
+It's best if you talk to me on Discord @ **viri#0001**
