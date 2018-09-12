@@ -73,6 +73,7 @@
     <scripts name="engine">
       <script>scripts\update_title.gml</script>
       <script>scripts\reset_triggers.gml</script>
+      <script>scripts\draw_debug_ui.gml</script>
     </scripts>
     <scripts name="player">
       <script>scripts\die.gml</script>

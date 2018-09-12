@@ -191,31 +191,10 @@ room_speed = global.engineFPS;
             <string>/// Debug UI
 
 if(global.debugGui) {
-    var textColor = c_white;
-    var drawX = 5;
-    var drawY = 5;
-    
-    draw_set_alpha(1.0);
-    draw_set_font(debugFont);
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_top);
-    with(player) {
-        var fpsreal = string(round(fps_real));
-        var debugtext = "(" + string(x) + ", " + string(y) + ") "; // Coordinates
-        debugtext += "align " + string(x % 3) + " @ "; // H-Align
-        debugtext += room_get_name(room); // Room Name
-        debugtext += " / " + fpsreal + " fps ";
+    if(instance_number(player) &gt; 0) {
+        draw_debug_ui(instance_find(player, 0), 5, 5, c_white, debugFont);
         
-        for(var i = 0; i &lt; (4 - string_length(fpsreal)); i++)
-            debugtext += " ";
-        
-        debugtext += "(" + string(round(fps)) + " apparent)";
-        
-        if(global.god)
-            debugtext += " [god]";
-        
-        draw_set_color(textColor);
-        draw_text(5, 5, debugtext);
+        // For multiple players you could add another one here but find(player, 1) etc
     }
 }
 </string>
