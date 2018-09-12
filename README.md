@@ -13,7 +13,7 @@ A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamema
 - Debug overlay: room, player coordinates (with v-align), h-align, fps / fps_real
 - No unnecessary files included: Compact 150 kB **.gmz** download
 
-### Documentation & Tutorials 📰
+### Documentation & Tutorials 📖
 Yeah I'll make a thing and put it here. You just wait. :pog:
 
 ## Setup
@@ -30,6 +30,6 @@ To get started, open GameMaker and import the *.gmz* contents with the **Import 
 
 Tutorials & examples can be found in the docs. Have fun! ❤
 
-### Contact 💬
+### Contact 📧
 
 I'm the most active on Discord @ **viri#0001**
