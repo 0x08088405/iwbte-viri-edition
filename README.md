@@ -1,6 +1,6 @@
 # I Wanna Be The Engine: viri edition
 
-A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamemaker) for creating *'I Wanna Be The Guy'* fangames, created due to the lack of lightweight & user-friendly engines available for  **GameMaker: Studio v1.x**.
+A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamemaker) for creating *I Wanna Be The Guy* fangames, created due to the lack of lightweight & user-friendly engines available for  **GameMaker: Studio v1.x**.
 
 ## Overview
 ### Features ⭐
