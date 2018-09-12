@@ -200,7 +200,7 @@ if(global.debugGui) {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     with(player) {
-        var fpsreal = string(round(fps_real / 10));
+        var fpsreal = string(round(fps_real));
         var debugtext = "(" + string(x) + ", " + string(y) + ") "; // Coordinates
         debugtext += "align " + string(x % 3) + " @ "; // H-Align
         debugtext += room_get_name(room); // Room Name
