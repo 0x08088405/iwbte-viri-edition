@@ -7,7 +7,9 @@ global.k_restart = ord("R");
 global.k_pause = ord("P");
 global.k_save = ord("S"); // Only used with S saves (global.sSaves)
 global.k_suicide = ord("Q"); // Only used if global.canSuicide is on
-
+global.k_exit = vk_escape;
+global.k_reset = vk_f2;
+global.k_fullscreen = vk_f4;
 
 // [Keybinds/Debug]
 global.k_debug_god = vk_home;
