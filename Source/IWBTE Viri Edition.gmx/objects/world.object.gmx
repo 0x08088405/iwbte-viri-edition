@@ -98,27 +98,33 @@ if(global.timeTicking) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>    /// Keys
+            <string>/// Keys
 
+// Restart after death
 if(keyboard_check_pressed(global.k_restart)) {
     reset_triggers();
     load(false, false);
 }
 
+// Debug hotkeys
 if(global.debug) {
+    // Godmode
     if(keyboard_check_pressed(global.k_debug_god)) {
         global.god = !global.god;
     }
     
+    // Save state
     if(keyboard_check_pressed(global.k_debug_save)) {
         save(true);
         play_sound(seShoot);
     }
     
+    // Flip gravity
     if(keyboard_check_pressed(global.k_debug_flip)) {
         flip();
     }
     
+    // Set FPS
     if(keyboard_check_pressed(global.k_debug_fps)) {
         var newFps = get_integer("FPS:", global.engineFPS);
         if(newFps &gt;= 1) {
@@ -127,20 +133,23 @@ if(global.debug) {
         }
     }
     
-    // V-Align code in player
-    
+    // Room--
     if(keyboard_check_pressed(global.k_debug_decreaserm)) {
         if(room_exists(room - 1)) {
             if(room - 1 != rInit)
                 room_goto(room - 1);
         }
+    // Room++
     } else if(keyboard_check_pressed(global.k_debug_advancerm)) {
         if(room_exists(room + 1)) room_goto(room + 1);
     }
     
+    // Reveal hitbox
     if(keyboard_check_pressed(global.k_debug_hitbox)) {
         global.drawHitbox = !global.drawHitbox;
     }
+    
+    // V-Align setter is in player step
 }
 </string>
           </argument>
