@@ -100,10 +100,28 @@ if(global.timeTicking) {
             <kind>1</kind>
             <string>/// Keys
 
-// Restart after death
+// Restarts after death
 if(keyboard_check_pressed(global.k_restart)) {
     reset_triggers();
     load(false, false);
+}
+
+// Exit game
+if(keyboard_check_pressed(global.k_exit)) {
+    // You might wanna add some stuff instead of instantly closing here ...
+    game_end();
+}
+
+// Soft reset
+if(keyboard_check_pressed(global.k_reset)) {
+    ds_map_destroy(global.saveData); // Clear save ds_map
+    with(all) instance_destroy(); // Destroy all instances
+    room_goto(rInit); // Goto init
+}
+
+// Toggle fullscreen
+if(keyboard_check_pressed(global.k_fullscreen)) {
+    window_set_fullscreen(!window_get_fullscreen());
 }
 
 // Debug hotkeys
