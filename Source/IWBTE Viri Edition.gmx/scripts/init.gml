@@ -1,31 +1,30 @@
 /// [Keybinds]
-global.k_left = vk_left;
-global.k_right = vk_right;
-global.k_jump = vk_shift;
-global.k_shoot = ord("Z");
-global.k_restart = ord("R");
-global.k_pause = ord("P");
-global.k_save = ord("S"); // Only used with S saves (global.sSaves)
-global.k_suicide = ord("Q"); // Only used if global.canSuicide is on
-global.k_exit = vk_escape;
-global.k_reset = vk_f2;
-global.k_fullscreen = vk_f4;
+global.k_left = vk_left; // Movement (Left)
+global.k_right = vk_right; // Movement (Right)
+global.k_jump = vk_shift; // Player Jump
+global.k_shoot = ord("Z"); // Player Shoot
+global.k_restart = ord("R"); // Restart (after dying)
+global.k_pause = ord("P"); // Pause [UNIMPLEMENTED]
+global.k_save = ord("S"); // Save button if global.sSaves is on
+global.k_suicide = ord("Q"); // Suicide button (req. global.canSuicide)
+global.k_exit = vk_escape; // Exit game
+global.k_reset = vk_f2; // Soft reset game
+global.k_fullscreen = vk_f4; // Toggle fullscreen
 
 // [Keybinds/Debug]
-global.k_debug_god = vk_home;
-global.k_debug_save = vk_end;
-global.k_debug_flip = ord("G");
-global.k_debug_fps = ord("F");
-global.k_debug_valign = ord("V");
-global.k_debug_hitbox = ord("H");
-global.k_debug_drag = vk_tab;
-global.k_debug_dragmouse = mb_middle;
-global.k_debug_decreaserm = vk_pagedown;
-global.k_debug_advancerm = vk_pageup;
-
+global.k_debug_god = vk_home; // Godmode Toggle
+global.k_debug_save = vk_end; // Save at current position
+global.k_debug_flip = ord("G"); // Flip gravity
+global.k_debug_fps = ord("F"); // Set FPS (displays prompt)
+global.k_debug_valign = ord("V"); // Set V-Align (displays prompt)
+global.k_debug_hitbox = ord("H"); // Toggle hitbox display
+global.k_debug_drag = vk_tab; // Hold to snap player to mouse x-y
+global.k_debug_dragmouse = mb_middle; // Above, but instead it's a mouse button
+global.k_debug_decreaserm = vk_pagedown; // Go back a room (if it exists & not rInit)
+global.k_debug_advancerm = vk_pageup; // Go forwards a room (if it exists)
 
 /// [Player]
-global.canPause = true; // Completely unimplemented.
+global.canPause = true; // Completely unimplemented (so far!)
 global.saveHop = true; // Whether you get a djump on load (otherwise it's in your save)
 global.adTrick = true; // Determines if you can use the A<>D trick
 global.canSuicide = false; // Determines if you can kill yourself with k_suicide
