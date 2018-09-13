@@ -1,4 +1,11 @@
 /// draw_debug_ui(player_instance, draw_x, draw_y, color, monospaced_font)
+// Draws a debug overlay with the information:
+// X, Y Coordinate (with V-Align)
+// Horizontal Alignment (0 / 1 / 2)
+// Current room name
+// Current true fps, and normal fps (room_speed)
+
+// This script is reusable as the data is pulled from the provided player_instance
 
 var textColor = argument3;
 var drawX = argument1;

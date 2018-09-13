@@ -11,6 +11,7 @@ with(player) {
     gravity = abs(gravity) * global.pGravity;
     set_mask();
     
+    // Prevent getting stuck on flip, move out of blocks
     if(global.pGravity) move_outside_solid(270, 16);
     else move_outside_solid(90, 16);
 }
