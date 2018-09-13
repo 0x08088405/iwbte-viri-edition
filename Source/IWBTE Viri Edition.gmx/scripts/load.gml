@@ -12,12 +12,13 @@ if(argument1) {
     }
 }
 
+// Make sure there's no blood in the room as we are alive again
 if(instance_exists(blood)) with(blood) instance_destroy();
 if(instance_exists(bloodEmitter)) with(bloodEmitter) instance_destroy();
 if(instance_exists(player)) with(player) instance_destroy();
 
 if(global.saveData[? "started"] || argument0) {
-    // Load data
+    // Load data - values are self-explainatory from the ds_map keys (inside [? ""])
     var sx, sy, sr, sf, sd, st, sg, sdj;
     sx = global.saveData[? "x"];
     sy = global.saveData[? "y"];
@@ -46,15 +47,15 @@ if(global.saveData[? "started"] || argument0) {
         }
         room_goto(sr);
         
-        // Logging
+        // Logging load calls
         show_debug_message("Loaded successfully @ " + room_get_name(sr)
         + " (" +  string(sx) + ", " + string(sy) + "), Deaths: " + string(sd)
         + ", Time (seconds): " + string(st));
     } else {
-        // Nonexistent room in savefile, panic!
+        // Nonexistent room in savefile, panic!!
         show_message("Room in savefile doesn't exist!");
         new_game();
     }
 } else {
-    new_game();
+    new_game(); // Create a new game if we haven't started a save yet
 }
