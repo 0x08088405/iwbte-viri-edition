@@ -308,9 +308,9 @@ if(!place_free(x + hspeed, y)) {
 if(!place_free(x, y + vspeed)) {
     if(global.pGravity == 1) {
         if(vspeed &lt;= 0) move_contact_solid(90, abs(vspeed));
-        if(vspeed &gt; 0) { move_contact_solid(270, abs(vspeed)); djump = 1; }
+        if(vspeed &gt; 0) { move_contact_solid(270, abs(vspeed)); djump = true; }
     } else {
-        if(vspeed &lt;= 0) { move_contact_solid(90, abs(vspeed)); djump = 1; }
+        if(vspeed &lt;= 0) { move_contact_solid(90, abs(vspeed)); djump = true; }
         if(vspeed &gt; 0) move_contact_solid(270, abs(vspeed));
     }
     vspeed = 0;
