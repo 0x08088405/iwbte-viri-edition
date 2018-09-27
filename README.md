@@ -1,4 +1,4 @@
-# I Wanna Be The Engine: viri edition
+# I Wanna Be The Engine: viri edition ✨
 
 A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamemaker) for creating *I Wanna Be The Guy* fangames, developed due to the lack of lightweight & user-friendly engines available for  **GameMaker: Studio v1.x**.
 
@@ -21,7 +21,7 @@ Yeah I'll make a thing and put it here. You just wait. :pog:
 
 You can grab the latest version
 [here](https://github.com/notviri/iwbte-viri-edition/releases/download/v0.9/IWBTE.Viri.Edition.v0_9.gmz)
-*(pre-release, v0.9)*.
+*(pre-release, v0.9)* although this is far behind the current version!
   
 It's recommended you use **GameMaker: Studio v1.4.1757** as versions after that had reported framerate bugs in game builds ran on Windows 10. You can download this specific version from the official YoYoGames servers [here](http://store.yoyogames.com/downloads/gm-studio/GMStudio-Installer-1.4.1757.exe) ([mirror](https://mega.nz/#!Ayh2maAA!V9N_7ROqbfeyQ2_NQOqyiptjb9dp6j94EAsHEsPSyq0)), and just select not to upgrade when prompted to download the newest version.
 
