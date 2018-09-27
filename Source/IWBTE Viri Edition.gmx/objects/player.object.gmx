@@ -297,22 +297,28 @@ y = yprevious;
 
 if(instance_place(x + hspeed, y, block)) {
     if(global.pGravity) {
-        if(hspeed &lt;= 0) move_contact_all(180, abs(hspeed));
-        if(hspeed &gt; 0) move_contact_all(0, abs(hspeed));
+        if(hspeed &lt;= 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
+        if(hspeed &gt; 0) while (instance_place(x + 1, y, block) == noone) x += 1;
     } else {
-        if(hspeed &lt; 0) move_contact_all(180, abs(hspeed));
-        if(hspeed &gt;= 0) move_contact_all(0, abs(hspeed));
+        if(hspeed &lt; 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
+        if(hspeed &gt;= 0) while (instance_place(x + 1, y, block) == noone) x += 1;
     }
     hspeed = 0;
 }
 
 if(instance_place(x, y + vspeed, block)) {
     if(global.pGravity == 1) {
-        if(vspeed &lt;= 0) move_contact_all(90, abs(vspeed));
-        if(vspeed &gt; 0) { move_contact_all(270, abs(vspeed)); djump = true; }
+        if(vspeed &lt;= 0) while (instance_place(x, y - 1, block) == noone) y -= 1;
+        if(vspeed &gt; 0) {
+            while (instance_place(x, y + 1, block) == noone) y += 1;
+            djump = true;
+        }
     } else {
-        if(vspeed &lt;= 0) { move_contact_all(90, abs(vspeed)); djump = true; }
-        if(vspeed &gt; 0) move_contact_all(270, abs(vspeed));
+        if(vspeed &lt;= 0) {
+            while (instance_place(x, y - 1, block) == noone) y -= 1;
+            djump = true;
+        }
+        if(vspeed &gt; 0) while (instance_place(x, y + 1, block) == noone) y += 1;
     }
     vspeed = 0;
 }
