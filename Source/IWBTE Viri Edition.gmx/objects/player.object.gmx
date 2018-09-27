@@ -130,7 +130,7 @@ if(!frozen) {
 }
 
 // Collision checks
-onBlock = !place_free(x, y + global.pGravity);
+onBlock = instance_place(x, y + global.pGravity, block);
 onConveyor = instance_place(x, y + global.pGravity, conveyor);
 onVineL = place_meeting(x - 1, y, vineL) &amp;&amp; !onBlock;
 onVineR = place_meeting(x + 1, y, vineR) &amp;&amp; !onBlock;
