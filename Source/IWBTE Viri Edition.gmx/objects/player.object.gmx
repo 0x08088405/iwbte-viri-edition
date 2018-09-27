@@ -292,31 +292,36 @@ if(global.pGravity) {
             <kind>1</kind>
             <string>/// Collision
 
-// Horizontal Collision
-if(!place_free(x + hspeed, y)) {
+x = xprevious;
+y = yprevious;
+
+if(position_meeting(x + hspeed, y, block)) {
     if(global.pGravity) {
-        if(hspeed &lt;= 0) move_contact_solid(180, abs(hspeed));
-        if(hspeed &gt; 0) move_contact_solid(0, abs(hspeed));
+        if(hspeed &lt;= 0) move_contact_all(180, abs(hspeed));
+        if(hspeed &gt; 0) move_contact_all(0, abs(hspeed));
     } else {
-        if(hspeed &lt; 0) move_contact_solid(180, abs(hspeed));
-        if(hspeed &gt;= 0) move_contact_solid(0, abs(hspeed));
+        if(hspeed &lt; 0) move_contact_all(180, abs(hspeed));
+        if(hspeed &gt;= 0) move_contact_all(0, abs(hspeed));
     }
     hspeed = 0;
 }
 
-// Vertical Collision
-if(!place_free(x, y + vspeed)) {
+if(instance_place(x, y + vspeed, block)) {
     if(global.pGravity == 1) {
-        if(vspeed &lt;= 0) move_contact_solid(90, abs(vspeed));
-        if(vspeed &gt; 0) { move_contact_solid(270, abs(vspeed)); djump = true; }
+        if(vspeed &lt;= 0) move_contact_all(90, abs(vspeed));
+        if(vspeed &gt; 0) { move_contact_all(270, abs(vspeed)); djump = true; }
     } else {
-        if(vspeed &lt;= 0) { move_contact_solid(90, abs(vspeed)); djump = true; }
-        if(vspeed &gt; 0) move_contact_solid(270, abs(vspeed));
+        if(vspeed &lt;= 0) { move_contact_all(90, abs(vspeed)); djump = true; }
+        if(vspeed &gt; 0) move_contact_all(270, abs(vspeed));
     }
     vspeed = 0;
 }
 
-if(!place_free(x + hspeed, y + vspeed)) hspeed = 0;
+
+if(instance_place(x + hspeed, y + vspeed, block)) hspeed = 0;
+
+x += hspeed;
+y += vspeed;
 </string>
           </argument>
         </arguments>

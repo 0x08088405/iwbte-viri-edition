@@ -148,6 +148,7 @@
   <rooms name="rooms">
     <room>rooms\rInit</room>
     <room>rooms\rDemo</room>
+    <room>rooms\rDemo_real</room>
     <room>rooms\rTemplate</room>
   </rooms>
   <help>
