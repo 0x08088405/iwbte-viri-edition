@@ -295,7 +295,7 @@ if(global.pGravity) {
 x = xprevious;
 y = yprevious;
 
-if(position_meeting(x + hspeed, y, block)) {
+if(instance_place(x + hspeed, y, block)) {
     if(global.pGravity) {
         if(hspeed &lt;= 0) move_contact_all(180, abs(hspeed));
         if(hspeed &gt; 0) move_contact_all(0, abs(hspeed));
