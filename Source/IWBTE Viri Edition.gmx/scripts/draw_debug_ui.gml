@@ -17,8 +17,12 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 with(argument0) {
+    var extended_valign = string(floor((y * 10000) - (floor(y) * 10000)));
+    while(string_length(extended_valign) < 4) extended_valign += "0";
+    var norm_valign = y - floor(y);
     var fpsreal = string(round(min(fps_real, 9999)));
-    var debugtext = "(" + string(x) + ", " + string(y) + ") "; // Coordinates
+    var debugtext = "(" + string(x) + ", ";
+    debugtext += string(y) + " or ." + extended_valign + ") ";
     debugtext += "align " + string(x % 3) + " @ "; // H-Align
     debugtext += room_get_name(room); // Room Name
     debugtext += " / " + fpsreal + " fps ";
