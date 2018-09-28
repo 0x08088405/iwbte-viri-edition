@@ -29,6 +29,7 @@
 
 event_inherited();
 image_speed = 1/15;
+
 </string>
           </argument>
         </arguments>

@@ -28,6 +28,7 @@
             <string>/// Set self-destruct timer
 
 alarm[0] = 20;
+
 </string>
           </argument>
         </arguments>
@@ -53,6 +54,7 @@ alarm[0] = 20;
             <string>/// Destroy
 
 instance_destroy();
+
 </string>
           </argument>
         </arguments>
@@ -77,13 +79,14 @@ instance_destroy();
             <kind>1</kind>
             <string>/// Emit blood
 
-repeat(30) {
-    with(instance_create(x, y, blood)) {
+repeat (30) {
+    with (instance_create(x, y, blood)) {
         gravity = (0.1 + random(0.2)) * global.pGravity;
         direction = random(360);
         speed = random(8);
     }
 }
+
 </string>
           </argument>
         </arguments>

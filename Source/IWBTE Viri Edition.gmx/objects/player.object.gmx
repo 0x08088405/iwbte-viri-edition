@@ -44,7 +44,7 @@ set_mask();
 dir = 1;
 
 // Autosaving
-if(global.autosave) save(true);
+if (global.autosave) save(true);
 global.autosave = false;
 
 // Custom sprites should be set here
@@ -55,6 +55,7 @@ sRun   = sPlayerRunning;
 sSlide = sPlayerSliding;
 
 sprite_index = sIdle; // Ensuring it's the right sprite from creation
+
 </string>
           </argument>
         </arguments>
@@ -79,16 +80,17 @@ sprite_index = sIdle; // Ensuring it's the right sprite from creation
             <kind>1</kind>
             <string>/// Debug: Change V-Align
 
-if(!frozen) {
-    if(keyboard_check_pressed(global.k_debug_valign) &amp;&amp; global.debug) {
+if (!frozen) {
+    if (keyboard_check_pressed(global.k_debug_valign) &amp;&amp; global.debug) {
         var vf = floor(y);
         var va = y - vf;
         var newVa = get_integer("New V-Align:", va);
-        if(newVa &gt;= 0) {
+        if (newVa &gt;= 0) {
             y = vf + newVa;
         }
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -117,7 +119,7 @@ var h, onBlock, onConveyor, onVineL, onVineR;
 h = 0; // Default (player not moving)
 
 // Checking input
-if(global.lrAnywhere) {
+if (global.lrAnywhere) {
     l = keyboard_check_direct(global.k_left);
     r = keyboard_check_direct(global.k_right);
 } else {
@@ -125,8 +127,9 @@ if(global.lrAnywhere) {
     r = keyboard_check(global.k_right);
 }
 
-if(!frozen) {
-    if(r) h = 1; else if(l) h = -1;
+if (!frozen) {
+    if (r) h = 1;
+    else if (l) h = -1;
 }
 
 // Collision checks
@@ -136,8 +139,8 @@ onVineL = place_meeting(x - 1, y, vineL) &amp;&amp; !onBlock;
 onVineR = place_meeting(x + 1, y, vineR) &amp;&amp; !onBlock;
 
 // Movement
-if(h != 0) {
-    if(!onVineL &amp;&amp; !onVineR) dir = h; // Setting the direction the player is facing
+if (h != 0) {
+    if (!onVineL &amp;&amp; !onVineR) dir = h; // Setting the direction the player is facing
     hspeed = hscap * h; // Setting speed
     sprite_index = sRun; image_speed = 0.5; // Running sprite
 } else {
@@ -146,58 +149,59 @@ if(h != 0) {
 }
 
 // Platform Magic
-if(!onPlatform) {
-    if(vspeed * global.pGravity &lt; -0.05) sprite_index = sJump;
-    else if(vspeed * global.pGravity &gt; 0.05 ) sprite_index = sFall;
+if (!onPlatform) {
+    if (vspeed * global.pGravity &lt; -0.05) sprite_index = sJump;
+    else if (vspeed * global.pGravity &gt; 0.05 ) sprite_index = sFall;
 } else {
-    if(!place_meeting(x, y + (4 * global.pGravity), platform)) onPlatform = false;
+    if (!place_meeting(x, y + (4 * global.pGravity), platform)) onPlatform = false;
 }
 
-if(onConveyor) hspeed += onConveyor.cspeed; // Conveyor Magic
-if(abs(vspeed) &gt; vscap) vspeed = sign(vspeed) * vscap; // Vspeed capping
+if (onConveyor) hspeed += onConveyor.cspeed; // Conveyor Magic
+if (abs(vspeed) &gt; vscap) vspeed = sign(vspeed) * vscap; // Vspeed capping
 
-if(onVineL || onVineR) {
-    if(onVineR) dir = -1; else dir = 1; // Setting (inverse) player direction
+if (onVineL || onVineR) {
+    if (onVineR) dir = -1; else dir = 1; // Setting (inverse) player direction
     vspeed = 2 * global.pGravity; // Setting sliding speed
     sprite_index = sSlide; image_speed = 0.5; // Sliding sprite
     
-    if((onVineL &amp;&amp; keyboard_check_pressed(global.k_right))
-    || (onVineR &amp;&amp; keyboard_check_pressed(global.k_left))) {
-        if(keyboard_check(global.k_jump)) {
+    if ((onVineL &amp;&amp; keyboard_check_pressed(global.k_right)) ||
+        (onVineR &amp;&amp; keyboard_check_pressed(global.k_left))) {
+        if (keyboard_check(global.k_jump)) {
             // Jumping off from vines
-            if(onVineR) hspeed = -15; else hspeed = 15; // Jumpoff hspeed
+            if (onVineR) hspeed = -15; else hspeed = 15; // Jumpoff hspeed
             vspeed = -9 * global.pGravity; // Jumpoff vspeed
             play_sound(seJump3); // Play vine-jump sound
             sprite_index = sJump; // Jumping sprite
         } else {
             // Falling off from vines
-            if(onVineR) hspeed = -3; else hspeed = 3;
+            if (onVineR) hspeed = -3; else hspeed = 3;
             sprite_index = sFall;
         }
     }
 }
 
-if(!frozen) {
-    if(global.debug) {
-        if(global.adTrick &amp;&amp; onBlock) {
-            if(keyboard_check_pressed(ord("A"))) hspeed -= 1;
-            else if(keyboard_check_pressed(ord("D"))) hspeed += 1;
+if (!frozen) {
+    if (global.debug) {
+        if (global.adTrick &amp;&amp; onBlock) {
+            if (keyboard_check_pressed(ord("A"))) hspeed -= 1;
+            else if (keyboard_check_pressed(ord("D"))) hspeed += 1;
         }
     
-        if(keyboard_check(global.k_debug_drag) || mouse_check_button(global.k_debug_dragmouse)) {
+        if (keyboard_check(global.k_debug_drag) || mouse_check_button(global.k_debug_dragmouse)) {
             x = mouse_x; y = mouse_y; vspeed = 0;
         }
     }
-    if(keyboard_check_pressed(global.k_jump)) jump();
-    if(keyboard_check_released(global.k_jump)) jumpEnd();
-    if(keyboard_check_pressed(global.k_shoot)) shoot();
-    if(keyboard_check_pressed(global.k_suicide) &amp;&amp; global.canSuicide) die();
+    if (keyboard_check_pressed(global.k_jump)) jump();
+    if (keyboard_check_released(global.k_jump)) jumpEnd();
+    if (keyboard_check_pressed(global.k_shoot)) shoot();
+    if (keyboard_check_pressed(global.k_suicide) &amp;&amp; global.canSuicide) die();
 }
 
 // Water Physics
-if(place_meeting(x, y, water) || place_meeting(x, y, water2)) {
-    if((vspeed * global.pGravity) &gt; 2) vspeed = 2 * global.pGravity;
+if (place_meeting(x, y, water) || place_meeting(x, y, water2)) {
+    if ((vspeed * global.pGravity) &gt; 2) vspeed = 2 * global.pGravity;
 }
+
 </string>
           </argument>
         </arguments>
@@ -223,6 +227,7 @@ if(place_meeting(x, y, water) || place_meeting(x, y, water2)) {
             <string>/// Death
 
 if(!global.god) die();
+
 </string>
           </argument>
         </arguments>
@@ -245,11 +250,12 @@ if(!global.god) die();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Platform Science
+            <string>/// Platform Magic
+// It's the standard, bad implementation we all know and love
 
-if(global.pGravity) {
-    if(y - vspeed / 2 &lt;= other.y) {
-        if(other.vspeed &gt;= 0) {
+if (global.pGravity) {
+    if (y - vspeed / 2 &lt;= other.y) {
+        if (other.vspeed &gt;= 0) {
             y = other.y - 9;
             vspeed = other.vspeed;
             djump = true;
@@ -258,8 +264,8 @@ if(global.pGravity) {
         djump = true;
     }
 } else {
-    if(y - vspeed / 2 &gt;= other.y + 15) {
-        if(other.vspeed &gt;= 0) {
+    if (y - vspeed / 2 &gt;= other.y + 15) {
+        if (other.vspeed &gt;= 0) {
             y = other.y + 23;
             vspeed = other.vspeed;
             djump = true;
@@ -268,6 +274,7 @@ if(global.pGravity) {
         djump = true;
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -290,44 +297,49 @@ if(global.pGravity) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Collision
+            <string>/// Collision (No Solids!)
 
+// Move back to before hsp/vsp was applied
 x = xprevious;
 y = yprevious;
 
-if(instance_place(x + hspeed, y, block)) {
-    if(global.pGravity) {
-        if(hspeed &lt;= 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
-        if(hspeed &gt; 0) while (instance_place(x + 1, y, block) == noone) x += 1;
+// Snap to blocks Horizontally
+if (instance_place(x + hspeed, y, block)) {
+    if (global.pGravity) {
+        if (hspeed &lt;= 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
+        if (hspeed &gt; 0) while (instance_place(x + 1, y, block) == noone) x += 1;
     } else {
-        if(hspeed &lt; 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
-        if(hspeed &gt;= 0) while (instance_place(x + 1, y, block) == noone) x += 1;
+        if (hspeed &lt; 0) while (instance_place(x - 1, y, block) == noone) x -= 1;
+        if (hspeed &gt;= 0) while (instance_place(x + 1, y, block) == noone) x += 1;
     }
     hspeed = 0;
 }
 
-if(instance_place(x, y + vspeed, block)) {
-    if(global.pGravity == 1) {
-        if(vspeed &lt;= 0) while (instance_place(x, y - 1, block) == noone) y -= 1;
-        if(vspeed &gt; 0) {
+// Snap to blocks Vertically
+if (instance_place(x, y + vspeed, block)) {
+    if (global.pGravity == 1) {
+        if (vspeed &lt;= 0) while (instance_place(x, y - 1, block) == noone) y -= 1;
+        if (vspeed &gt; 0) {
             while (instance_place(x, y + 1, block) == noone) y += 1;
             djump = true;
         }
     } else {
-        if(vspeed &lt;= 0) {
+        if (vspeed &lt;= 0) {
             while (instance_place(x, y - 1, block) == noone) y -= 1;
             djump = true;
         }
-        if(vspeed &gt; 0) while (instance_place(x, y + 1, block) == noone) y += 1;
+        if (vspeed &gt; 0) while (instance_place(x, y + 1, block) == noone) y += 1;
     }
     vspeed = 0;
 }
 
 
-if(instance_place(x + hspeed, y + vspeed, block)) hspeed = 0;
+if (instance_place(x + hspeed, y + vspeed, block)) hspeed = 0;
 
+// Apply remaining hsp/vsp that we took at the start
 x += hspeed;
 y += vspeed;
+
 </string>
           </argument>
         </arguments>
@@ -352,16 +364,18 @@ y += vspeed;
             <kind>1</kind>
             <string>/// Death -or- Room Switching
 
-if(instance_exists(intersectSwitch)) {
-    with(instance_find(intersectSwitch, 0)) {
-        if(!roomTo) die(); // If roomTo is noone, it's not set up. Die.
-        if(autoNext) global.autosave = true; // Autosaving if set
+if (instance_exists(intersectSwitch)) {
+    with (instance_find(intersectSwitch, 0)) {
+        if (!roomTo) die(); // If roomTo is noone, it's not set up. Die.
+        if (autoNext) global.autosave = true; // Autosaving if set
         room_goto(roomTo);
     }
+    
     instance_destroy(); // Destroy player, will be created by playerStart
 } else {
     die(); // If there's no boundsSwitch, just die
 }
+
 </string>
           </argument>
         </arguments>
@@ -387,20 +401,23 @@ if(instance_exists(intersectSwitch)) {
             <string>/// Drawing Self &amp; Hitbox
 
 var xd, yd, a; xd = x; yd = y;
-if(!global.pGravity) yd += 1.0;
+if (!global.pGravity) yd += 1.0;
 
 yd = round(yd); // crispy GM8-like rounding (mm)
 
-if(global.god)
+if (global.god)
     a = 0.7;
 else
     a = 1.0;
 
-if(global.drawPlayer) draw_sprite_ext(sprite_index, image_index, xd, yd, image_xscale * dir,
-    image_yscale * global.pGravity, image_angle, image_blend, a);
+if (global.drawPlayer)
+    draw_sprite_ext(sprite_index, image_index, xd, yd, image_xscale * dir,
+        image_yscale * global.pGravity, image_angle, image_blend, a);
 
-if(global.drawHitbox) draw_sprite_ext(mask_index, image_index, x, y, image_xscale,
-    image_yscale, image_angle, image_blend, a * 0.8);
+if (global.drawHitbox)
+    draw_sprite_ext(mask_index, image_index, x, y, image_xscale,
+        image_yscale, image_angle, image_blend, a * 0.8);
+
 </string>
           </argument>
         </arguments>

@@ -38,6 +38,7 @@ dir = 0;
 spd = 0;
 
 triggered = false;
+
 </string>
           </argument>
         </arguments>
@@ -62,17 +63,18 @@ triggered = false;
             <kind>1</kind>
             <string>/// Activation
 
-if(!triggered &amp;&amp; global.triggers[group]) {
-    if(spd != 0) {
+if (!triggered &amp;&amp; global.triggers[group]) {
+    if (spd != 0) {
         speed = spd;
         direction = dir;
-    } else if(hsp != 0 || vsp != 0) {
+    } else if (hsp != 0 || vsp != 0) {
         vspeed = vsp;
         hspeed = hsp;
     }
     
     triggered = true;
 }
+
 </string>
           </argument>
         </arguments>

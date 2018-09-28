@@ -32,7 +32,8 @@ grav = image_yscale; // Normal Gravity
 image_speed = 0;
 cooldown = false;
 
-if(global.difficulty &gt; difficulty) instance_destroy();
+if (global.difficulty &gt; difficulty) instance_destroy();
+
 </string>
           </argument>
         </arguments>
@@ -57,6 +58,7 @@ if(global.difficulty &gt; difficulty) instance_destroy();
             <kind>1</kind>
             <string>/// Reset cooldown
 cooldown = false;
+
 </string>
           </argument>
         </arguments>
@@ -80,10 +82,12 @@ cooldown = false;
           <argument>
             <kind>1</kind>
             <string>/// Save
-if((place_meeting(x, y, bullet) &amp;&amp; !global.sSaves)
-|| (place_meeting(x, y, player) &amp;&amp; keyboard_check(global.k_shoot) &amp;&amp; !global.sSaves)
-|| ((global.sSaves &amp;&amp; keyboard_check(global.k_save)) &amp;&amp; place_meeting(x, y, player))) {
-    if(!cooldown &amp;&amp; instance_exists(player) &amp;&amp; global.pGravity == grav) {
+
+if (
+    /* Bullet Contact */ (place_meeting(x, y, bullet) &amp;&amp; !global.sSaves) ||
+    /* Shoot while Contact */ (place_meeting(x, y, player) &amp;&amp; keyboard_check(global.k_shoot) &amp;&amp; !global.sSaves) ||
+    /* S Saves */ ((global.sSaves &amp;&amp; keyboard_check(global.k_save)) &amp;&amp; place_meeting(x, y, player))) {
+    if (!cooldown &amp;&amp; instance_exists(player) &amp;&amp; global.pGravity == grav) {
         cooldown = true;
         alarm[0] = 30;
         image_index = 1;
@@ -91,6 +95,7 @@ if((place_meeting(x, y, bullet) &amp;&amp; !global.sSaves)
         save(true);
     }
 }
+
 </string>
           </argument>
         </arguments>
@@ -114,7 +119,10 @@ if((place_meeting(x, y, bullet) &amp;&amp; !global.sSaves)
           <argument>
             <kind>1</kind>
             <string>/// Reset sprite
-image_index = 0; image_speed = 0;
+
+image_index = 0;
+image_speed = 0;
+
 </string>
           </argument>
         </arguments>

@@ -1,3 +1,5 @@
+/// update_title()
+
 var d, h, m, s, t, c;
 
 t = global.time; // Current time elapsed (per-save)
@@ -15,3 +17,4 @@ c = string_replace(c, "%M", string           (m)); // Match %M with Minutes
 c = string_replace(c, "%S", string           (s)); // Match %S with Seconds
 
 window_set_caption(c); // Set formatted string as title
+
