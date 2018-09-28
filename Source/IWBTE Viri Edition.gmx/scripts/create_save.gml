@@ -16,3 +16,4 @@ ds_map_add(global.saveData, "djump", true);
 
 // If you for whatever reason start the game in the air, set djump to false here
 // (if you want to make the player not be able to djump that is)
+

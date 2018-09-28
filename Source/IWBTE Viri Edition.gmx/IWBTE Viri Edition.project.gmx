@@ -16,6 +16,7 @@
   <sprites name="sprites">
     <sprites name="block">
       <sprite>sprites\sBlock</sprite>
+      <sprite>sprites\sConveyor</sprite>
       <sprite>sprites\sPlatform</sprite>
       <sprite>sprites\sWater</sprite>
       <sprite>sprites\sTrigger</sprite>

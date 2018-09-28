@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!global.pGravity) flip();
+            <string>/// Flip if reversed gravity
+if (!global.pGravity) flip();
+
 </string>
           </argument>
         </arguments>

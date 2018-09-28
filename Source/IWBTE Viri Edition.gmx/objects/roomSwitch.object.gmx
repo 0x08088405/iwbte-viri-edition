@@ -29,6 +29,7 @@
 
 roomTo = noone;
 autoNext = false;
+
 </string>
           </argument>
         </arguments>
@@ -52,14 +53,15 @@ autoNext = false;
           <argument>
             <kind>1</kind>
             <string>/// Go to room
-if(room_exists(roomTo)) {
-    if(autoNext) global.autosave = true;
+if (room_exists(roomTo)) {
+    if (autoNext) global.autosave = true;
     with(player) instance_destroy();
     room_goto(roomTo);
 } else {
     show_debug_message("Room in roomSwitch does not exist: " + string(roomTo));
     instance_destroy();
 }
+
 </string>
           </argument>
         </arguments>

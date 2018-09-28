@@ -29,6 +29,7 @@
 image_index = irandom(image_number - 1);
 
 stopped = false;
+
 </string>
           </argument>
         </arguments>
@@ -53,12 +54,13 @@ stopped = false;
             <kind>1</kind>
             <string>/// Stop on contact
 
-if(!stopped) {
+if (!stopped) {
     move_contact_solid(direction, speed);
     speed = 0;
     gravity = 0;
     stopped = true;
 }
+
 </string>
           </argument>
         </arguments>

@@ -10,3 +10,4 @@ if(instance_exists(player)) {
 room_goto(global.startRoom);
 global.death = 0; global.time = 0; update_title();
 show_debug_message("No save present to load, starting new game...");
+

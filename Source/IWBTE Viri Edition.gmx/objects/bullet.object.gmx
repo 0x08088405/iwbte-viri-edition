@@ -28,6 +28,7 @@
             <string>/// Expired
 
 instance_destroy();
+
 </string>
           </argument>
         </arguments>
@@ -53,6 +54,7 @@ instance_destroy();
             <string>/// -&gt; UserEvent0
 
 event_user(0);
+
 </string>
           </argument>
         </arguments>
@@ -78,6 +80,7 @@ event_user(0);
             <string>/// Destroy
 
 instance_destroy();
+
 </string>
           </argument>
         </arguments>
@@ -103,6 +106,7 @@ instance_destroy();
             <string>/// -&gt; UserEvent0
 
 event_user(0);
+
 </string>
           </argument>
         </arguments>

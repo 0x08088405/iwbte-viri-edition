@@ -1,23 +1,26 @@
-/// load(load_dt, load_from_file)
+/// load (BOOL loadDeathTime, BOOL hardReloadFromFile)
 // Pass argument0 as true for full load
 // Pass argument1 if you want to load the file instead... ?
 // Only do that when you're FIRST loading the save!
 
-if(argument1) {
+if (argument1) {
     ds_map_clear(global.saveData);
     global.saveData = ds_map_secure_load("save" + string(global.saveIndex));
-    if(global.saveData == -1) {
+    if (global.saveData == -1) {
         new_game();
         return 0;
     }
 }
 
 // Make sure there's no blood in the room as we are alive again
-if(instance_exists(blood)) with(blood) instance_destroy();
-if(instance_exists(bloodEmitter)) with(bloodEmitter) instance_destroy();
-if(instance_exists(player)) with(player) instance_destroy();
+if (instance_exists(blood))
+    with (blood) instance_destroy();
+if (instance_exists(bloodEmitter))
+    with (bloodEmitter) instance_destroy();
+if (instance_exists(player))
+    with (player) instance_destroy();
 
-if(global.saveData[? "started"] || argument0) {
+if (global.saveData[? "started"] || argument0) {
     // Load data - values are self-explainatory from the ds_map keys (inside [? ""])
     var sx, sy, sr, sf, sd, st, sg, sdj;
     sx = global.saveData[? "x"];
@@ -30,18 +33,18 @@ if(global.saveData[? "started"] || argument0) {
     sdj = global.saveData[? "djump"];
     
     // Loading death&time
-    if(argument0) {
+    if (argument0) {
         global.death = sd;
         global.time = st;
         update_title();
     }
     
-    if(room_exists(sr)) {
+    if (room_exists(sr)) {
         // Load player
-        with(instance_create(sx, sy, player)) {
+        with (instance_create(sx, sy, player)) {
             dir = sf;
             djump = sdj || global.saveHop;
-            if((sg && !global.pGravity) || (!sg && global.pGravity)) {
+            if ((sg && !global.pGravity) || (!sg && global.pGravity)) {
                 flip();
             }
         }
@@ -59,3 +62,4 @@ if(global.saveData[? "started"] || argument0) {
 } else {
     new_game(); // Create a new game if we haven't started a save yet
 }
+

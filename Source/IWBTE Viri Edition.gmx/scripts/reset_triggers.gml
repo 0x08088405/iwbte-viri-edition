@@ -1,6 +1,7 @@
 /// reset_triggers()
-// resets all triggers (amount defined by globals.triggersMax -> init())
+// resets all triggers (amount defined by globals.triggersMax from init())
 
-for(var i = 0; i < global.triggersMax; i++) {
+for (var i = 0; i < global.triggersMax; i++) {
     global.triggers[i] = false;
 }
+
