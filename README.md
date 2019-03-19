@@ -6,6 +6,7 @@ A small engine on top of YoYoGames' [GameMaker](https://www.yoyogames.com/gamema
 ### Features ⭐
 
 - Plays just like the established **yuuutu** engine, no need to worry about using a nonstandard engine!
+- **NO SOLIDS!** Yeah, that disgusting abomination of a GameMaker feature is gone. Yay
 - The entire project is created in pure GameMaker Language (GML) and is cross-platform
 - Designed to be very simple to understand, modify and be highly customizable
 - Minimal sound system & mixer built on top of the basic audio interface
