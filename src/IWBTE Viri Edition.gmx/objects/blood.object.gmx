@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set random sprite
 image_index = irandom(image_number - 1);
+image_speed = 0;
 
 stopped = false;
 
@@ -55,7 +56,6 @@ stopped = false;
             <string>/// Stop on contact
 
 if (!stopped) {
-    move_contact_solid(direction, speed);
     speed = 0;
     gravity = 0;
     stopped = true;
