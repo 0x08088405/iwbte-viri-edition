@@ -79,8 +79,6 @@
     <scripts name="player">
       <script>scripts\die.gml</script>
       <script>scripts\flip.gml</script>
-      <script>scripts\jump.gml</script>
-      <script>scripts\shoot.gml</script>
       <script>scripts\set_mask.gml</script>
     </scripts>
     <scripts name="saves">
