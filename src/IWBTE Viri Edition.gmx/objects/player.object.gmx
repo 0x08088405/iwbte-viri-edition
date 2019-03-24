@@ -191,9 +191,30 @@ if (!frozen) {
             x = mouse_x; y = mouse_y; vspeed = 0;
         }
     }
-    if (keyboard_check_pressed(global.k_jump)) jump();
-    if (keyboard_check_released(global.k_jump)) jumpEnd();
-    if (keyboard_check_pressed(global.k_shoot)) shoot();
+    if (keyboard_check_pressed(global.k_jump)) {
+        if (place_meeting(x, y + global.pGravity, block) || onPlatform || place_meeting(x, y + global.pGravity, water)) {
+            vspeed = -jump1; // First jump
+            djump = true; // Make sure you can djump afterwards
+            play_sound(seJump); // Jump sound
+        } else if (djump || place_meeting(x, y + global.pGravity, water2) || global.infiniteJump) {
+            djump = place_meeting(x, y + global.pGravity, water3);
+            vspeed = -jump2; // Doublejump
+            sprite_index = sJump; // Jumping sprite
+            play_sound(seJump2); // Djump sound
+        }
+    }
+    if (keyboard_check_released(global.k_jump)) {
+        if (vspeed * global.pGravity &lt; 0) vspeed *= 0.45; // Jump released
+    }
+    if (keyboard_check_pressed(global.k_shoot)) {
+        if (instance_number(bullet) &lt; global.bulletCap) {
+            with (instance_create(x, y, bullet)) { // Create bullet
+                hspeed = other.dir * 16; // Set speed (16px/f)
+                alarm[0] = 40; // Destroy in 40 frames
+                play_sound(seShoot); // Play sound
+            }
+        }
+    }
     if (keyboard_check_pressed(global.k_suicide) &amp;&amp; global.canSuicide) die();
 }
 
