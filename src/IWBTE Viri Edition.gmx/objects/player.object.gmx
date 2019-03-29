@@ -227,6 +227,42 @@ if (place_meeting(x, y, water) || place_meeting(x, y, water2)) {
     if ((vspeed * global.pGravity) &gt; 2) vspeed = 2 * global.pGravity;
 }
 
+// Room Edge - Death, Switching or Wrapping
+if (global.wrapPlayerX || global.wrapPlayerY) {
+    if (global.wrapPlayerX) {
+        if (x &gt; room_width) x -= room_width;
+        else if (x &lt; 0) x += room_width;
+    }
+    if (global.wrapPlayerY) {
+        if (y &gt; room_height) y -= room_height;
+        else if (y &lt; 0) y += room_height;
+    }
+}
+
+var intersect = false;
+if (!global.wrapPlayerX) {
+    if (x &gt; room_width) intersect = true;
+    else if (x &lt; 0) intersect = true;
+}
+if (!global.wrapPlayerY) {
+    if (y &gt; room_height) intersect = true;
+    else if (y &lt; 0) intersect = true;
+}
+
+if (intersect) {
+    if (instance_exists(intersectSwitch)) {
+        with (instance_find(intersectSwitch, 0)) {
+            if (!roomTo) die(); // If roomTo is noone, it's not set up. Die.
+            if (autoNext) global.autosave = true; // Autosaving if set
+            room_goto(roomTo);
+        }
+        
+        instance_destroy(); // Destroy player, will be created by playerStart
+    } else if (global.killPlayerOnEdge) {
+        die(); // If there's no intersectSwitch, just die
+    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -364,42 +400,6 @@ if (instance_place(x + hspeed, y + vspeed, block)) hspeed = 0;
 // Apply remaining hsp/vsp that we took at the start
 x += hspeed;
 y += vspeed;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Death -or- Room Switching
-
-if (instance_exists(intersectSwitch)) {
-    with (instance_find(intersectSwitch, 0)) {
-        if (!roomTo) die(); // If roomTo is noone, it's not set up. Die.
-        if (autoNext) global.autosave = true; // Autosaving if set
-        room_goto(roomTo);
-    }
-    
-    instance_destroy(); // Destroy player, will be created by playerStart
-} else {
-    die(); // If there's no boundsSwitch, just die
-}
 
 </string>
           </argument>
