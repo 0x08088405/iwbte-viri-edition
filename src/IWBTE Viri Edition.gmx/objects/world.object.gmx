@@ -168,6 +168,11 @@ if (global.debug) {
         global.drawHitbox = !global.drawHitbox;
     }
     
+    // Debug UI Toggle
+    if (keyboard_check_pressed(global.k_debug_toggleui)) {
+        global.debugGui = !global.debugGui;
+    }
+    
     // V-Align setter is in player step
 }
 

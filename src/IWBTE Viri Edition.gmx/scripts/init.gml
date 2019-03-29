@@ -13,6 +13,7 @@ global.k_fullscreen = vk_f4; // Toggle fullscreen
 
 // [Keybinds/Debug]
 global.k_debug_god = vk_home; // Godmode Toggle
+global.k_debug_toggleui = vk_insert; // Debug UI Toggle
 global.k_debug_save = vk_end; // Save at current position
 global.k_debug_flip = ord("G"); // Flip gravity
 global.k_debug_fps = ord("F"); // Set FPS (displays prompt)
