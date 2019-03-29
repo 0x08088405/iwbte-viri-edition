@@ -192,7 +192,11 @@ if (!frozen) {
         }
     }
     if (keyboard_check_pressed(global.k_jump)) {
-        if (place_meeting(x, y + global.pGravity, block) || onPlatform || place_meeting(x, y + global.pGravity, water)) {
+        if (place_meeting(x, y + global.pGravity, block)
+            || place_meeting(x, y + global.pGravity, platform)
+            || place_meeting(x, y + global.pGravity, water)
+            || onPlatform)
+        {
             vspeed = -jump1; // First jump
             djump = true; // Make sure you can djump afterwards
             play_sound(seJump); // Jump sound
