@@ -18,6 +18,7 @@
       <sprite>sprites\sBlock</sprite>
       <sprite>sprites\sConveyor</sprite>
       <sprite>sprites\sPlatform</sprite>
+      <sprite>sprites\sSaveBlocker</sprite>
       <sprite>sprites\sWater</sprite>
       <sprite>sprites\sTrigger</sprite>
       <sprite>sprites\sVineL</sprite>
@@ -140,6 +141,7 @@
       <object>objects\intersectSwitch</object>
     </objects>
     <objects name="world">
+      <object>objects\saveBlocker</object>
       <object>objects\savePoint</object>
       <object>objects\world</object>
     </objects>
