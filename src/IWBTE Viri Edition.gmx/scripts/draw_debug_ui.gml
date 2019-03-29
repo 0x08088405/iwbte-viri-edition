@@ -22,7 +22,11 @@ with (argument0) {
     var norm_valign = y - floor(y);
     var fpsreal = string(round(min(fps_real, 9999)));
     var debugtext = "(" + string(x) + ", ";
-    debugtext += string(y) + " or ." + extended_valign + ") ";
+    var y_str = string(y);
+    if string_pos(".", y_str) == 0 {
+        y_str += ".00";
+    }
+    debugtext += y_str + " or ." + extended_valign + ") ";
     debugtext += "align " + string(x % 3) + " @ "; // H-Align
     debugtext += room_get_name(room); // Room Name
     debugtext += " / " + fpsreal + " fps ";
