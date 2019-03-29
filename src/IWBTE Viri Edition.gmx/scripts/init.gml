@@ -37,7 +37,7 @@ global.lrAnywhere = false; // Check for left/right keys when tabbed out because 
 global.pGravity = 1; // Gravity multiplier. -1 for upside down gravity, 1 for normal gravity
 global.bulletCap = 5; // Maximum bullets in a room at any given time
 global.wrapPlayerX = false; // VVVVVV (X-Axis)
-global.wrapPlayerY = true; // VVVVVV (Y-Axis)
+global.wrapPlayerY = false; // VVVVVV (Y-Axis)
 global.killPlayerOnEdge = true; // The standard thing.
 
 /// [Internal]
