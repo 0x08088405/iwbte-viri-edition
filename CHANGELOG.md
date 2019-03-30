@@ -4,7 +4,7 @@
 - Added save blockers
 
 ### v1.03
-- Fixed platforms being broken after the removal of solids
+- Fixed platforms being broken after the removal of solids (Thanks to **Cherry** for pointing it out!)
 - Fixed debug UI vibrating as platforms alternated .00 and .40
 - Added debug key in `init` for toggling the debug overlay
 
@@ -13,7 +13,7 @@
 - Updated death script to be easier to modify for multiplayer
 
 ### v1.01
-- Fixed conveyors being weird when touching sides (Thank you Bob @ Del-fruit)
+- Fixed conveyors being weird when touching sides (Thanks **Bob**! Probably wouldn't have found that one.)
 - Fixed blood "animating" when it shouldn't
 - Fixed gravity flippers potentially not un-stucking you correctly
 
