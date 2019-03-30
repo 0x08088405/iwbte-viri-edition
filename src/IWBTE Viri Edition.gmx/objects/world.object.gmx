@@ -155,12 +155,17 @@ if (global.debug) {
     // Room--
     if (keyboard_check_pressed(global.k_debug_decreaserm)) {
         if (room_exists(room - 1)) {
-            if (room - 1 != rInit)
+            if (room - 1 != rInit) {
+                with (player) instance_destroy();
                 room_goto(room - 1);
+            }
         }
     // Room++
     } else if (keyboard_check_pressed(global.k_debug_advancerm)) {
-        if (room_exists(room + 1)) room_goto(room + 1);
+        if (room_exists(room + 1)) {
+            with (player) instance_destroy();
+            room_goto(room + 1);
+        }
     }
     
     // Reveal hitbox
