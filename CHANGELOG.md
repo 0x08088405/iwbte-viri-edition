@@ -1,7 +1,7 @@
 ### v1.04
 - Made the screen edge kill you on your X/Y intersect now (as with other games)
 - Added screenwrap option on either axis (VVVVVV style)
-- Added save blockers
+- Added save blockers as it's common enough
 
 ### v1.03
 - Fixed platforms being broken after the removal of solids (Thanks to **Cherry** for pointing it out!)
