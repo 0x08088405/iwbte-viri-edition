@@ -29,7 +29,7 @@ Tutorials & examples can be found in the docs. Have fun! ❤
 
 ### Contact 💬
 
-It's best if you talk to me on Discord @ **viri#8959**
+It's best if you talk to me on Discord @ **viri#1337**
   
   
 ###### Special thanks to Samiboule for tons of testing! 💖
