@@ -25,7 +25,7 @@ It's recommended you use **GameMaker: Studio v1.4.1757** as versions after that 
 To get started, open GameMaker and import the *.gmz* contents with the **Import project...** option. This'll allow you to create a new project from the *.gmz* provided.
 **Do not** open this *.gmz* directly as it won't give you the option to select where it's imported to, or what the project name is, and if you had two *.gmz* files with the same name they could even conflict in the same folder and it won't even ask you.
 
-Tutorials & examples can be found in the docs. Have fun! ❤
+Tutorials & examples can be found in the docs. Have fun!
 
 
 ###### Special thanks to Samiboule for tons of testing! 💖
